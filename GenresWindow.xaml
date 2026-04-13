@@ -1,0 +1,69 @@
+<Window x:Class="LibraryApp.GenresWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Управление жанрами"
+        Height="400"
+        Width="600"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Список жанров"
+                FontSize="20"
+                FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                Margin="0,0,0,10"/>
+
+        <DataGrid Grid.Row="1"
+                x:Name="dgGenres"
+                AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                SelectionMode="Single"
+                Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                        Binding="{Binding Id}"
+                        Width="50"/>
+                <DataGridTextColumn Header="Название"
+                        Binding="{Binding Name}"
+                        Width="150"/>
+                <DataGridTextColumn Header="Описание"
+                        Binding="{Binding Description}"
+                        Width="350"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center">
+            <Button Content="Добавить"
+                    Width="100"
+                    Height="30"
+                    Margin="5"
+                    Click="BtnAddGenre_Click"
+                    Background="LightGreen"/>
+            <Button Content="Редактировать"
+                    Width="100"
+                    Height="30"
+                    Margin="5"
+                    Click="BtnEditGenre_Click"
+                    Background="LightYellow"/>
+            <Button Content="Удалить"
+                    Width="100"
+                    Height="30"
+                    Margin="5"
+                    Click="BtnDeleteGenre_Click"
+                    Background="LightCoral"/>
+            <Button Content="Закрыть"
+                    Width="100"
+                    Height="30"
+                    Margin="5"
+                    Click="BtnClose_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

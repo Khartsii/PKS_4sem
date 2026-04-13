@@ -61,3 +61,12 @@ D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\refint\LibraryAp
 D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\LibraryApp.pdb
 D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\LibraryApp.genruntimeconfig.cache
 D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\ref\LibraryApp.dll
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\LibraryApp.sourcelink.json
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\AuthorDialog.baml
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\AuthorsWindow.baml
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\GenreDialog.baml
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\GenresWindow.baml
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\AuthorDialog.g.cs
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\AuthorsWindow.g.cs
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\GenreDialog.g.cs
+D:\Учеба\4 semestr\pks\LibraryApp\obj\Debug\net9.0-windows\GenresWindow.g.cs

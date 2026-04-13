@@ -21,6 +21,25 @@ namespace LibraryApp
             Loaded += MainWindow_Loaded!;
         }
 
+
+        private void BtnManageAuthors_Click(object sender, RoutedEventArgs e)
+        {
+            var authorsWindow = new AuthorsWindow(_context);
+            authorsWindow.Owner = this;
+            authorsWindow.ShowDialog();
+            LoadFilters(); // Обновляем фильтры после изменения авторов
+            LoadBooks(); // Обновляем список книг
+        }
+
+        private void BtnManageGenres_Click(object sender, RoutedEventArgs e)
+        {
+            var genresWindow = new GenresWindow(_context);
+            genresWindow.Owner = this;
+            genresWindow.ShowDialog();
+            LoadFilters(); // Обновляем фильтры после изменения жанров
+            LoadBooks(); // Обновляем список книг
+        }
+
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             try

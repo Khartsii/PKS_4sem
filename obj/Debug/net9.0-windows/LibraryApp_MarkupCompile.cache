@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
 D:\Учеба\4 semestr\pks\LibraryApp\App.xaml
-2-1702477977
+6833854062
 
-9429201446
+131527280107
 228549270132
-BookDialog.xaml;MainWindow.xaml;
+AuthorDialog.xaml;AuthorsWindow.xaml;BookDialog.xaml;GenreDialog.xaml;GenresWindow.xaml;MainWindow.xaml;
 
 False
 

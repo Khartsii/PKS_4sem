@@ -19,6 +19,17 @@ namespace LibraryApp.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Конфигурация для Book
+            // Уникальный индекс для ISBN
+            modelBuilder.Entity<Book>()
+                .HasIndex(b => b.ISBN)
+                .IsUnique();
+
+            // Уникальный индекс для комбинации (Title, AuthorId, PublishYear)
+            modelBuilder.Entity<Book>()
+                .HasIndex(b => new { b.Title, b.AuthorId, b.PublishYear })
+                .IsUnique()
+                .HasDatabaseName("IX_Book_Title_Author_Year");
+                
             modelBuilder.Entity<Book>(entity =>
             {
                 entity.HasKey(e => e.Id);

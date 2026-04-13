@@ -30,6 +30,21 @@ namespace LibraryApp
                 Title = "Добавление книги";
             }
         }
+        private bool IsBookExists(string title, int authorId, int publishYear, string isbn, int? excludeId = null)
+        {
+            return _context.Books.Any(b =>
+                (b.Title == title && b.AuthorId == authorId && b.PublishYear == publishYear) ||
+                (b.ISBN == isbn) &&
+                (excludeId == null || b.Id != excludeId)
+            );
+        }
+
+        private bool IsValidISBN(string isbn)
+        {
+            // Проверка, что ISBN содержит ровно 13 цифр
+            return !string.IsNullOrWhiteSpace(isbn) && isbn.Length == 13 && isbn.All(char.IsDigit);
+        }
+
 
         private void LoadComboBoxes()
         {
@@ -52,6 +67,16 @@ namespace LibraryApp
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            int authorId = (int)cmbAuthor.SelectedValue;
+            int genreId = (int)cmbGenre.SelectedValue;
+            int year = int.Parse(txtYear.Text);
+
+            if (IsBookExists(txtTitle.Text, authorId, year, txtISBN.Text, _editingBook?.Id))
+            {
+                MessageBox.Show("Книга с таким названием, автором, годом издания или ISBN уже существует", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 MessageBox.Show("Введите название книги", "Ошибка",
@@ -66,7 +91,7 @@ namespace LibraryApp
                 return;
             }
 
-            if (!int.TryParse(txtYear.Text, out int year) || year < 0 || year > DateTime.Now.Year)
+            if (year < 0 || year > DateTime.Now.Year)
             {
                 MessageBox.Show("Введите корректный год издания", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
@@ -94,6 +119,13 @@ namespace LibraryApp
                 return;
             }
 
+            if (!IsValidISBN(txtISBN.Text))
+            {
+                MessageBox.Show("ISBN должен содержать ровно 13 цифр", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (_editingBook == null)
             {
                 var newBook = new Book
@@ -107,6 +139,7 @@ namespace LibraryApp
                 };
                 _context.Books.Add(newBook);
             }
+
             else
             {
                 _editingBook.Title = txtTitle.Text;
